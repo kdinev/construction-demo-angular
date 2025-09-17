@@ -1,0 +1,38 @@
+<igx-list class="list">
+  @for (item of northwindSwaggerCustomerDto; track item) {
+    <igx-list-item (click)="selectedCustomer = item">
+      <span igxListThumbnail>
+        <igx-avatar shape="circle" class="avatar">
+          <igx-icon>
+            person
+          </igx-icon>
+        </igx-avatar>
+      </span>
+      <span igxListLineTitle>{{ item.companyName }}</span>
+      <span igxListLineSubTitle>{{ item.contactName }}</span>
+      <span igxListAction>
+        <igx-icon class="icon">
+          star
+        </igx-icon>
+      </span>
+    </igx-list-item>
+  }
+</igx-list>
+<igx-grid [data]="northwindSwaggerOrderDto" primaryKey="orderId" [allowFiltering]="true" filterMode="excelStyleFilter" class="grid">
+  <igx-column field="orderId" dataType="number" header="orderId" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+  <igx-column field="customerId" dataType="string" header="customerId" [filterable]="true" [sortable]="true" required="true" [minlength]="1" [selectable]="false"></igx-column>
+  <igx-column field="employeeId" dataType="number" header="employeeId" [filterable]="true" [sortable]="true" [min]="1" [max]="2147483647" [selectable]="false"></igx-column>
+  <igx-column field="shipperId" dataType="number" header="shipperId" [filterable]="true" [sortable]="true" [min]="1" [max]="2147483647" [selectable]="false"></igx-column>
+  <igx-column field="orderDate" dataType="date" header="orderDate" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+  <igx-column field="requiredDate" dataType="date" header="requiredDate" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+  <igx-column field="shipVia" dataType="string" header="shipVia" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+  <igx-column field="freight" dataType="number" header="freight" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+  <igx-column field="shipName" dataType="string" header="shipName" [filterable]="true" [sortable]="true" [maxlength]="100" [selectable]="false"></igx-column>
+  <igx-column field="completed" dataType="boolean" header="completed" [filterable]="true" [sortable]="true" [selectable]="false"></igx-column>
+  <igx-column field="shipAddress.street" dataType="string" header="shipAddress street" [filterable]="true" [sortable]="true" [maxlength]="100" [selectable]="false"></igx-column>
+  <igx-column field="shipAddress.city" dataType="string" header="shipAddress city" [filterable]="true" [sortable]="true" [maxlength]="50" [selectable]="false"></igx-column>
+  <igx-column field="shipAddress.region" dataType="string" header="shipAddress region" [filterable]="true" [sortable]="true" [maxlength]="50" [selectable]="false"></igx-column>
+  <igx-column field="shipAddress.postalCode" dataType="string" header="shipAddress postalCode" [filterable]="true" [sortable]="true" [maxlength]="20" [selectable]="false"></igx-column>
+  <igx-column field="shipAddress.country" dataType="string" header="shipAddress country" [filterable]="true" [sortable]="true" [maxlength]="50" [selectable]="false"></igx-column>
+  <igx-column field="shipAddress.phone" dataType="string" header="shipAddress phone" [filterable]="true" [sortable]="true" pattern="^\+?[0-9][0-9\-]{1,14}$" [selectable]="false"></igx-column>
+</igx-grid>
